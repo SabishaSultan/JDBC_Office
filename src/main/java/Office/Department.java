@@ -4,20 +4,20 @@ import java.util.Objects;
 
 
 public class Department {
-    int departmentID;
+    int departmentId;
     String name;
 
-    public Department(int departmentID, String name) {
-        this.departmentID = departmentID;
+    public Department(int departmentId, String name) {
+        this.departmentId = departmentId;
         this.name = name;
     }
 
-    public int getDepartmentID() {
-        return departmentID;
+    public int getDepartmentId() {
+        return departmentId;
     }
 
-    public void setDepartmentID(int departmentID) {
-        this.departmentID = departmentID;
+    public void setDepartmentId(int departmentId) {
+        this.departmentId = departmentId;
     }
 
     public String getName() {
@@ -31,7 +31,7 @@ public class Department {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 71 * hash + this.departmentID;
+        hash = 71 * hash + this.departmentId;
         hash = 71 * hash + Objects.hashCode(this.name);
         return hash;
     }
@@ -48,7 +48,7 @@ public class Department {
             return false;
         }
         final Department other = (Department) obj;
-        if (this.departmentID != other.departmentID) {
+        if (this.departmentId != other.departmentId) {
             return false;
         }
         if (!Objects.equals(this.name, other.name)) {
@@ -59,7 +59,7 @@ public class Department {
 
     @Override
     public String toString() {
-        return "Department{" + "departmentID=" + departmentID + ", name=" + name + '}';
+        return "Department{" + "departmentId=" + departmentId + ", name=" + name + '}';
     }
     
 }

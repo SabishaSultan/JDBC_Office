@@ -55,6 +55,31 @@ public enum Option {
             Service.removeDepartment(new Department(id,""));
         }
     },
+    CheckEmployeesAfterDepartmentDelete {
+        String getText() {
+            return this.ordinal() + ".Проверить сотрудников после удаления отдела";
+        }
+        void action() {
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Введите ID отдела для удаления:");
+            int id=sc.nextInt();
+            Service.removeDepartment(new Department(id,""));
+            // Проверяем сотрудников после удаления отдела
+            try(Connection con = DriverManager.getConnection("jdbc:h2:.\\JDBC_Office")){
+                Statement stm = con.createStatement();
+                ResultSet rs= stm.executeQuery("Select Employee.ID, Employee.Name,Department.Name as DepName from Employee join Department on Employee.DepartmentID=Department.ID");
+                //ResultSet rs= stm.executeQuery("Select Employee.ID, Employee.Name,Employee.DepartmentID as DepName from Employee");
+                System.out.println("------------------------------------");
+                ResultSetMetaData metaData= rs.getMetaData();
+                while(rs.next()){
+                    System.out.println(rs.getInt("ID")+"\t"+rs.getString("NAME")+"\t"+rs.getString("DepName"));
+                }
+                System.out.println("------------------------------------");
+            }catch (SQLException e) {
+                System.out.println(e);
+            }
+        }
+    },
     CLEAR_DB {
         String getText() {
             return this.ordinal() + ".Сбросить базу данных";
@@ -71,7 +96,7 @@ public enum Option {
         }
 
         void action() {
-            try(Connection con = DriverManager.getConnection("jdbc:h2:.\\Office")){
+            try(Connection con = DriverManager.getConnection("jdbc:h2:.\\JDBC_Office")){
                 PreparedStatement stm = con.prepareStatement(
                         "Select ID, NAME as txt from Department where name like ?",
                         ResultSet.TYPE_SCROLL_INSENSITIVE,
@@ -97,7 +122,7 @@ public enum Option {
         }
 
         void action() {
-            try(Connection con = DriverManager.getConnection("jdbc:h2:.\\Office")){
+            try(Connection con = DriverManager.getConnection("jdbc:h2:.\\JDBC_Office")){
                 Statement stm = con.createStatement();
                 ResultSet rs= stm.executeQuery("Select Employee.ID, Employee.Name,Department.Name as DepName from Employee join Department on Employee.DepartmentID=Department.ID");
                 //ResultSet rs= stm.executeQuery("Select Employee.ID, Employee.Name,Employee.DepartmentID as DepName from Employee");
