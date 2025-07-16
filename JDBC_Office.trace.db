@@ -13,3 +13,35 @@ INSERT INTO Department VALUES(?,?) [42104-214]
 2025-07-16 08:09:14 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "EMPLOYEE" not found (this database is empty); SQL statement:
 INSERT INTO Employee VALUES(?,?,?) [42104-214]
+2025-07-16 08:44:05 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "EMPLOYEE" not found (this database is empty); SQL statement:
+Select Employee.ID, Employee.Name,Department.Name as DepName from Employee join Department on Employee.DepartmentID=Department.ID [42104-214]
+2025-07-16 08:44:43 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "DEPARTMENT" not found (this database is empty); SQL statement:
+INSERT INTO Department VALUES(?,?) [42104-214]
+2025-07-16 10:21:18 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "EMPLOYEE" not found (this database is empty); SQL statement:
+INSERT INTO Employee VALUES(?,?,?) [42104-214]
+2025-07-16 10:29:54 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "DEPARTMENT" not found (this database is empty); SQL statement:
+INSERT INTO Department VALUES(?,?) [42104-214]
+2025-07-16 12:02:27 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Данный метод не разрешен для PreparedStatement; используйте Statement.
+This method is not allowed for a prepared statement; use a regular statement instead. [90130-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:554)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.jdbc.JdbcPreparedStatement.executeQuery(JdbcPreparedStatement.java:303)
+	at office.Option$7.action(Option.java:106)
+	at office.Office.main(Office.java:26)
+2025-07-16 22:17:53 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Объект уже закрыт
+The object is already closed [90007-214]
+2025-07-16 22:19:12 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Объект уже закрыт
+The object is already closed [90007-214]
+2025-07-16 22:34:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Объект уже закрыт
+The object is already closed [90007-214]
