@@ -15,6 +15,7 @@ public class Office {
     public static void main(String[] args) {
         try (Connection con = DriverManager.getConnection("jdbc:h2:~\\JDBC_Office");
              Statement stm = con.createStatement()) {
+
             Option opt = Option.AddDepartment;
             Scanner sc = new Scanner(System.in);
 

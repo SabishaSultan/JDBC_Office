@@ -127,6 +127,5 @@ public class AppTest {
 
     @AfterAll
     public static void tearDown() {
-        // Очистка базы данных или другие действия по завершению тестов
     }
 }

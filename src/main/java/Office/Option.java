@@ -70,8 +70,8 @@ public enum Option {
             // Проверяем сотрудников после удаления отдела
             try(Connection con = DriverManager.getConnection("jdbc:h2:.\\JDBC_Office")){
                 Statement stm = con.createStatement();
-                ResultSet rs= stm.executeQuery("Select Employee.ID, Employee.Name,Department.Name as DepName from Employee join Department on Employee.DepartmentID=Department.ID");
-                //ResultSet rs= stm.executeQuery("Select Employee.ID, Employee.Name,Employee.DepartmentID as DepName from Employee");
+                //ResultSet rs= stm.executeQuery("Select Employee.ID, Employee.Name,Department.Name as DepName from Employee join Department on Employee.DepartmentID=Department.ID");
+                ResultSet rs= stm.executeQuery("Select Employee.ID, Employee.Name,Employee.DepartmentID as DepName from Employee");
                 System.out.println("------------------------------------");
                 ResultSetMetaData metaData= rs.getMetaData();
                 while(rs.next()){
@@ -211,8 +211,8 @@ public enum Option {
         void action() {
             try(Connection con = DriverManager.getConnection("jdbc:h2:.\\JDBC_Office")){
                 Statement stm = con.createStatement();
-                ResultSet rs= stm.executeQuery("Select Employee.ID, Employee.Name,Department.Name as DepName from Employee join Department on Employee.DepartmentID=Department.ID");
-                //ResultSet rs= stm.executeQuery("Select Employee.ID, Employee.Name,Employee.DepartmentID as DepName from Employee");
+                //ResultSet rs= stm.executeQuery("Select Employee.ID, Employee.Name,Department.Name as DepName from Employee join Department on Employee.DepartmentID=Department.ID");
+                ResultSet rs= stm.executeQuery("Select Employee.ID, Employee.Name,Employee.DepartmentID as DepName from Employee");
                 System.out.println("------------------------------------");
                 ResultSetMetaData metaData= rs.getMetaData();
                 while(rs.next()){
