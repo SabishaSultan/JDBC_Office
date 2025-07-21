@@ -26,26 +26,26 @@ public class Office {
                 opt.action();
             }
 
-//            // 1. Найдите ID сотрудника с именем Ann и установите его департамент в HR
-//            ResultSet rs = stm.executeQuery("SELECT ID FROM Employee WHERE NAME = 'ann'");
-//            if (rs.next()) {
-//                int id = rs.getInt("ID");
-//                stm.executeUpdate("UPDATE Employee SET DepartmentID = 3 WHERE ID = " + id);
-//                System.out.println("Департамент сотрудника с ID " + id + " установлен в HR.");
-//            }
-//            // 2. Проверьте имена всех сотрудников и исправьте их на большие буквы
-//            ResultSet rsEmployees = stm.executeQuery("SELECT ID, NAME FROM Employee");
-//            int correctedCount = 0;
-//            while (rsEmployees.next()) {
-//                int id = rsEmployees.getInt("ID");
-//                String name = rsEmployees.getString("NAME");
-//                if (!Character.isUpperCase(name.charAt(0))) {
-//                    String correctedName = name.substring(0, 1).toUpperCase() + name.substring(1);
-//                    stm.executeUpdate("UPDATE Employee SET NAME = '" + correctedName + "' WHERE ID = " + id);
-//                    correctedCount++;
-//                }
-//            }
-//            System.out.println("Количество исправленных имён: " + correctedCount);
+            // 1. Найдите ID сотрудника с именем Ann и установите его департамент в HR
+            ResultSet rs = stm.executeQuery("SELECT ID FROM Employee WHERE NAME = 'ann'");
+            if (rs.next()) {
+                int id = rs.getInt("ID");
+                stm.executeUpdate("UPDATE Employee SET DepartmentID = 3 WHERE ID = " + id);
+                System.out.println("Департамент сотрудника с ID " + id + " установлен в HR.");
+            }
+            // 2. Проверьте имена всех сотрудников и исправьте их на большие буквы
+            ResultSet rsEmployees = stm.executeQuery("SELECT ID, NAME FROM Employee");
+            int correctedCount = 0;
+            while (rsEmployees.next()) {
+                int id = rsEmployees.getInt("ID");
+                String name = rsEmployees.getString("NAME");
+                if (!Character.isUpperCase(name.charAt(0))) {
+                    String correctedName = name.substring(0, 1).toUpperCase() + name.substring(1);
+                    stm.executeUpdate("UPDATE Employee SET NAME = '" + correctedName + "' WHERE ID = " + id);
+                    correctedCount++;
+                }
+            }
+            System.out.println("Количество исправленных имён: " + correctedCount);
 //
 //            // 3. Выведите на экран количество сотрудников в IT-отделе
 //            ResultSet rsIT = stm.executeQuery("SELECT COUNT(*) AS count FROM Employee WHERE DepartmentID = 2");

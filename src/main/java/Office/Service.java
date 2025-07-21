@@ -45,6 +45,13 @@ public class Service {
 
     public static void removeDepartment(Department d) {
         try (Connection con = DriverManager.getConnection("jdbc:h2:.\\JDBC_Office")) {
+
+            // Удаляем сотрудников, относящихся к данному департаменту
+            PreparedStatement deleteEmployeesStm = con.prepareStatement("DELETE FROM Employee WHERE DepartmentID=?");
+            deleteEmployeesStm.setInt(1, d.departmentId);
+            deleteEmployeesStm.executeUpdate();
+
+            // Теперь удаляем сам департамент
             PreparedStatement stm = con.prepareStatement("DELETE FROM Department WHERE ID=?");
             stm.setInt(1, d.departmentId);
             stm.executeUpdate();
